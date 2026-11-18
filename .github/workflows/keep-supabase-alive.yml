@@ -1,0 +1,18 @@
+name: Keep Supabase Free Tier Active
+
+on:
+  schedule:
+    # Jalan otomatis setiap 3 hari (mencegah auto-pause 7 hari di Supabase Free)
+    - cron: '0 2 */3 * *'
+  workflow_dispatch:
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase Products Table
+        run: |
+          curl -sf "${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}/rest/v1/products?select=id&limit=1" \
+            -H "apikey: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}" \
+            -H "Authorization: Bearer ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}"
+          echo "Supabase keep-alive ping sukses!"

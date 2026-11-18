@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0F2942;
+  --color-accent: #D97706;
+  --color-outdoor: #166534;
+  --color-surface: #FFFFFF;
+  --color-surface-muted: #F8FAFC;
+  --color-border: #E2E8F0;
+  --color-text-primary: #0F172A;
+  --color-text-secondary: #475569;
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+}
+
+
+  @theme {
+    --font-heading: var(--font-heading), "Plus Jakarta Sans", sans-serif;
+    --font-sans: var(--font-sans), "Inter", sans-serif;
+    --color-primary: #0F2942;
+    --color-accent: #D97706;
+    --color-outdoor: #166534;
+    --color-surface: #FFFFFF;
+    --color-surface-muted: #F8FAFC;
+    --color-border: #E2E8F0;
+    --color-text-primary: #0F172A;
+    --color-text-secondary: #475569;
+  }
+
+
+    body {
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+      font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      .font-heading {
+        font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
+        letter-spacing: -0.02em;
+      }
+
+      .tabular-nums {
+        font-variant-numeric: tabular-nums;
+      }
+
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #F1F5F9;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: #CBD5E1;
+        border-radius: 4px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #94A3B8;
+      }
+
+      /* Print Stylesheet */
+      @media print {
+        body {
+          background: white !important;
+          color: black !important;
+          font-size: 11pt !important;
+        }
+
+        header,
+        footer,
+        nav,
+        button,
+        .print\:hidden,
+        [role="dialog"] {
+          display: none !important;
+        }
+
+        .print\:block {
+          display: block !important;
+        }
+
+        .shadow-sm,
+        .shadow-md,
+        .shadow-lg,
+        .shadow-xl {
+          box-shadow: none !important;
+        }
+
+        @page {
+          margin: 1.5cm;
+          size: A4 portrait;
+        }
+      }
